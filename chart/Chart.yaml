@@ -15,8 +15,8 @@
 
 apiVersion: v2
 name: dnation-kubernetes-monitoring-stack
-version: 2.4.1
-appVersion: 2.3.1  # dnation-kubernetes-monitoring
+version: 2.5.0
+appVersion: 2.4.0  # dnation-kubernetes-monitoring
 description: An umbrella helm chart for Kubernetes monitoring based on kube-prometheus-stack, thanos, loki, loki-distributed, promtail and dnation-kubernetes-monitoring.
 keywords:
 - dnation
@@ -33,7 +33,7 @@ sources:
 - https://github.com/dNationCloud/kubernetes-monitoring-stack
 dependencies:
 - name: kube-prometheus-stack
-  version: "39.6.*"
+  version: "43.3.*"
   repository: https://prometheus-community.github.io/helm-charts
   condition: kube-prometheus-stack.enabled
 - name: thanos
@@ -41,11 +41,11 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
   condition: thanos.enabled
 - name: loki
-  version: "2.9.*"
+  version: "5.5.*"
   repository: https://grafana.github.io/helm-charts
   condition: loki.enabled
 - name: loki-distributed
-  version: "0.48.*"
+  version: "0.68.*"
   repository: https://grafana.github.io/helm-charts
   condition: loki-distributed.enabled
 - name: promtail
