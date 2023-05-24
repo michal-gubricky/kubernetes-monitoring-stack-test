@@ -114,6 +114,14 @@ dnation-kubernetes-monitoring:
 ##
 loki:
   enabled: true
+  backend:
+    replicas: 1
+  write:
+    # -- Number of replicas for the write
+    replicas: 1
+  read:
+    # -- Number of replicas for the read
+    replicas: 1
 
 ## Deploy a loki-distributed
 ## with s3-compatible object storage
