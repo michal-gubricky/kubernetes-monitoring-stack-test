@@ -21,6 +21,7 @@ on:
     - main
     # Only if there are changes to test.
     paths:
+    - 'chart/Chart.yaml'
     - 'chart/**'
     - '.github/**'
 
