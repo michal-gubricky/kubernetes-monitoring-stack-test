@@ -19,3 +19,4 @@ target-branch: main
 chart-dirs:
 - .
 helm-extra-args: --timeout 700s
+debug: true
