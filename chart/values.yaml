@@ -129,7 +129,7 @@ loki:
     replicas: 2
 
 test:
-  enabled: true
+  enabled: false
 
 ## Deploy a loki-distributed
 ## with s3-compatible object storage
