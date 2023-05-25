@@ -16,6 +16,10 @@
 name: Lint and Test Chart
 
 on:
+  pull_request:
+    paths:
+    - 'chart/**'
+    - '.github/**'  
   push:
     branches:
     - main
