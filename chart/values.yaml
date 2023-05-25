@@ -128,8 +128,8 @@ loki:
     # -- Number of replicas for the read
     replicas: 2
 
-test:
-  enabled: false
+  test:
+    enabled: false
 
 ## Deploy a loki-distributed
 ## with s3-compatible object storage
