@@ -25,7 +25,6 @@ on:
     - main
     # Only if there are changes to test.
     paths:
-    - 'chart/Chart.yaml'
     - 'chart/**'
     - '.github/**'
 
@@ -34,13 +33,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Fetch history
       run: git fetch --prune --unshallow
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@v2.1.0
+      uses: helm/chart-testing-action@v2.4.0
 
     - name: Run chart-testing (install)
       run: |
@@ -58,7 +57,7 @@ jobs:
         - v1.25.9
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Fetch history
       run: git fetch --prune --unshallow
@@ -69,7 +68,7 @@ jobs:
         node_image: kindest/node:${{ matrix.k8s }}
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@v2.1.0
+      uses: helm/chart-testing-action@v2.4.0
 
     - name: Run chart-testing (install)
       run: |
