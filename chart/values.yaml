@@ -119,8 +119,6 @@ dnation-kubernetes-monitoring:
 loki:
   enabled: true
   auth_enabled: false
-  commonConfig:
-    replication_factor: 2
   backend:
     replicas: 2
   write:
