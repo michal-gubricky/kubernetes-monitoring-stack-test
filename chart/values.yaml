@@ -128,6 +128,9 @@ loki:
     # -- Number of replicas for the read
     replicas: 2
 
+test:
+  enabled: true
+
 ## Deploy a loki-distributed
 ## with s3-compatible object storage
 ## ref: https://github.com/grafana/helm-charts/tree/main/charts/loki-distributed
