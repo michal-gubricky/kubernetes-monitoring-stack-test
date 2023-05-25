@@ -16,12 +16,15 @@
 name: Lint and Test Chart
 
 on:
+  pull_request:
+    paths:
+    - 'chart/**'
+    - '.github/**'  
   push:
     branches:
     - main
     # Only if there are changes to test.
     paths:
-    - 'chart/Chart.yaml'
     - 'chart/**'
     - '.github/**'
 
@@ -30,13 +33,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Fetch history
       run: git fetch --prune --unshallow
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@v2.1.0
+      uses: helm/chart-testing-action@v2.3.0
 
     - name: Run chart-testing (install)
       run: |
@@ -50,11 +53,12 @@ jobs:
     strategy:
       matrix:
         k8s:
+        - v1.23.13
         - v1.24.13
         - v1.25.9
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Fetch history
       run: git fetch --prune --unshallow
@@ -63,9 +67,10 @@ jobs:
       uses: helm/kind-action@v1.7.0
       with:
         node_image: kindest/node:${{ matrix.k8s }}
+        config: .github/kind_cluster_config.yaml
 
     - name: Set up chart-testing
-      uses: helm/chart-testing-action@v2.1.0
+      uses: helm/chart-testing-action@v2.3.0
 
     - name: Run chart-testing (install)
       run: |
